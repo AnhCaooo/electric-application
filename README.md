@@ -14,15 +14,19 @@ iOS application to serve content built with Swift, SwiftUI
 
 ## Backend services
 
+### electric-user-manager
+
+Manages users and roles for electric services
+
 ### stormbreaker
 
-Fetch electric prices in real time built with Golang
+Fetches electric prices in real time built with Golang
 
 ## API gateway - Doctor-strange 
 
 Own custom API gateway service built with NodeJS
 
-## Web server - Asgards-nginx 
+## Web server - Asgards
 
 Nginx as web server and reverse proxy
 
