@@ -14,9 +14,13 @@ iOS application to serve content built with Swift, SwiftUI
 
 ## Backend services
 
-### electric-user-manager
+### electric-keycloak
 
 Manages users and roles for electric services
+
+### electric-push-notifications
+
+A service that responsible for sending notifications to clients
 
 ### stormbreaker
 
