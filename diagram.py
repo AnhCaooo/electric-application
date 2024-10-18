@@ -13,8 +13,9 @@ with Diagram("Electric Application Architecture", show=False):
         with Cluster('web'):
             react = React('Rthor')
         
-    with Cluster('AWS EC2'):            
-        nginx = Nginx("Nginx")
+    with Cluster('AWS EC2'):   
+        with Cluster('Web Server'):         
+            nginx = Nginx("Nginx")
         # Database
         with Cluster('Database/Collections'):
             auth_db = MongoDB("Auth")
@@ -38,10 +39,10 @@ with Diagram("Electric Application Architecture", show=False):
     react >> nginx
     nginx >> Edge(color="darkgreen") << api_gateway 
     
-    api_gateway >> Edge(color="darkgreen") << auth >> auth_db
-    api_gateway >> Edge(color="darkgreen") << user >> user_db
-    api_gateway >> Edge(color="darkgreen") << electric >> user_db
-    api_gateway >> Edge(color="darkgreen") << notifications 
+    api_gateway >> auth >> auth_db
+    api_gateway >> user >> user_db
+    api_gateway >> electric >> user_db
+    api_gateway >> notifications 
     
     electric >> Edge(color="brown") << notifications
     notifications >> device_token_db
