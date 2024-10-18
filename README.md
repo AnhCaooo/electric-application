@@ -26,6 +26,11 @@ A service that responsible for sending notifications to clients
 
 Fetches electric prices in real time built with Golang
 
+## Database services
+
+### electric-mongo 
+MongoDB service 
+
 ## API gateway - Doctor-strange 
 
 Own custom API gateway service built with NodeJS
