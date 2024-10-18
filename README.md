@@ -2,7 +2,7 @@
 
 Electric application contains its own backend services, API gateway, frontend services. 
 
-![Electric Application Architecture](./electric-application-architecture.png)
+![Electric Application Architecture](./electric_application_architecture.png)
 
 ## Frontend services
 
