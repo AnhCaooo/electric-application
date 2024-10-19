@@ -12,7 +12,9 @@ with Diagram("Electric Application Architecture", show=False):
             ios = Swift('Sthor')
         with Cluster('web'):
             react = React('Rthor')
-        
+    # Firebase Cloud Messaging 
+    with Cluster('Firebase'):
+        fcm = Messaging("Cloud Messaging")   
     with Cluster('AWS EC2'):   
         with Cluster('Web Server'):         
             nginx = Nginx("Nginx")
@@ -22,9 +24,6 @@ with Diagram("Electric Application Architecture", show=False):
             user_db = MongoDB("User")
             device_token_db = MongoDB("Device Tokens")
 
-        # Firebase Cloud Messaging 
-        with Cluster('Firebase'):
-            fcm = Messaging("Cloud Messaging")
         # Define services                     
         with Cluster('API Gateway'):
             api_gateway = NodeJS("Doctor Strange")
