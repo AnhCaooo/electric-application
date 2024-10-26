@@ -16,13 +16,9 @@ iOS application to serve content built with Swift, SwiftUI
 
 ## Backend services
 
-### electric-auth (Private repo)
+### electric-keycloak (Private repo)
 
 Manages authentication & authorization for electric application
-
-### electric-user (Private repo)
-
-Handle all configurations, settings related to user 
 
 ### [electric-notifications](https://github.com/AnhCaooo/electric-push-notifications) (Public repo)
 
@@ -41,8 +37,7 @@ MongoDB service
 
 Own custom API gateway service built with NodeJS
 
-## Web server - Asgards (Private repo)
-
+## Web server & Reverse proxy - Nginx (Private repo)
 Nginx as web server and reverse proxy
 
 
