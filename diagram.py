@@ -1,31 +1,31 @@
 from diagrams import Diagram, Cluster, Edge
 from diagrams.onprem.network import Nginx
 from diagrams.programming.language import NodeJS, Go, Swift
-from diagrams.onprem.database import MongoDB, PostgreSQL
-from diagrams.onprem.container import Docker
+from diagrams.onprem.database import MongoDB
 from diagrams.firebase.grow import Messaging
-from diagrams.programming.framework import React
+from diagrams.programming.framework import React, FastAPI
 from diagrams.custom import Custom
 
 with Diagram("Electric Application Architecture", show=False):
-
-    
     # Client services 
     with Cluster('Client platforms'):
         with Cluster('iOS'):
             ios = Swift('Sthor')
         with Cluster('web'):
             react = React('Rthor')
+
+
     # Firebase Cloud Messaging 
     with Cluster('Firebase'):
         fcm = Messaging("Cloud Messaging")   
-    
+
+    # Supabase 
+    with Cluster("Supabase"):
+        supabase = Custom("Supabase Auth", "./assets/supabase.png")
+
     with Cluster('AWS EC2'):   
-        with Cluster('Web Server & Reverse proxy'):         
-            nginx = Nginx("Nginx")
-        with Cluster("IAM service"):
-            # define keycloak data 
-            keycloak = Custom("Keycloak", "./assets/keycloak.png")
+        with Cluster('Nginx'):         
+            nginx = Nginx("Web Server")
 
         # Database
         with Cluster('Mongodb'):
@@ -38,16 +38,16 @@ with Diagram("Electric Application Architecture", show=False):
         with Cluster('Backend services'):
             electric = Go("Electric service")
             notifications = Go("Notifications service")
-            
-        keycloak_db = PostgreSQL("Keycloak")
-        
-            
+            auth = FastAPI("Auth service")
+
+
     # Architecture
     ios >> nginx 
     react >> nginx
-    nginx >> Edge(color="darkgreen") << keycloak 
-    keycloak >> keycloak_db
-    keycloak >> Edge(color="darkgreen", label="If authenticate successful") >> api_gateway 
+    nginx >>  api_gateway 
+    
+    api_gateway >> auth 
+    auth >> supabase
     
     api_gateway >> electric >> user_db
     api_gateway >> notifications 
