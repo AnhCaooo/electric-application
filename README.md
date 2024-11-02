@@ -16,9 +16,9 @@ iOS application to serve content built with Swift, SwiftUI
 
 ## Backend services
 
-### electric-keycloak (Private repo)
+### electric-auth (Private repo)
 
-Manages authentication & authorization for electric application
+Manages authentication & authorization for electric application written in Python, [FastApi](https://fastapi.tiangolo.com/) and [Supabase](https://supabase.com/auth)
 
 ### [electric-notifications](https://github.com/AnhCaooo/electric-push-notifications) (Public repo)
 
@@ -31,13 +31,14 @@ Fetches electric prices in real time built with Golang
 ## Database services
 
 ### [electric-mongo](https://github.com/AnhCaooo/electric-mongo) (Public repo)
+
 MongoDB service 
 
 ## [API gateway](https://github.com/AnhCaooo/doctor-strange) - Doctor-strange (Public repo)
 
 Own custom API gateway service built with NodeJS
 
-## Web server & Reverse proxy - Nginx (Private repo)
-Nginx as web server and reverse proxy
+## electric-nginx Private repo
+Nginx as web server and reverse proxy 
 
 
