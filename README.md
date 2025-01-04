@@ -1,6 +1,6 @@
 # electric-application
 
-Electric application contains its own backend services, API gateway, frontend services. 
+Electric application contains its own backend services, message broker, API gateway, frontend services. 
 
 ![Electric Application Architecture](./electric_application_architecture.png)
 
