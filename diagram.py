@@ -6,7 +6,7 @@ from diagrams.firebase.grow import Messaging
 from diagrams.programming.framework import React, FastAPI
 from diagrams.custom import Custom
 
-with Diagram("Electric Application Architecture", show=False):
+with Diagram("Electric Application Architecture", show=True):
     # Client services 
     with Cluster('Client platforms'):
         with Cluster('iOS'):
@@ -14,46 +14,39 @@ with Diagram("Electric Application Architecture", show=False):
         with Cluster('web'):
             react = React('Rthor')
 
-
     # Firebase Cloud Messaging 
-    with Cluster('Firebase'):
-        fcm = Messaging("Cloud Messaging")   
-
+    fcm = Messaging("Cloud Messaging")   
     # Supabase 
-    with Cluster("Supabase"):
-        supabase = Custom("Supabase Auth", "./assets/supabase.png")
+    supabase = Custom("Supabase Auth", "./assets/supabase.png")
 
     with Cluster('AWS EC2'):   
-        with Cluster('Nginx'):         
-            nginx = Nginx("Web Server")
-
-        # Database
-        with Cluster('Mongodb'):
+        nginx = Nginx("Web Server")
+        api_gateway = NodeJS('API Gateway')
+        with Cluster('Services'):
+            auth = FastAPI('Auth service')
+            rabbitMQ = Custom("Message Broker", "./assets/rabbit.png")
+            electric = Go('Electric service')
+            notifications = Go('Notifications service')
+        
+        with Cluster('Database'):
             user_db = MongoDB("User")
             device_token_db = MongoDB("Device Tokens")
-        
-        # Define services                     
-        with Cluster('API Gateway'):
-            api_gateway = NodeJS("Doctor Strange")
-        with Cluster('Backend services'):
-            electric = Go("Electric service")
-            notifications = Go("Notifications service")
-            auth = FastAPI("Auth service")
-
 
     # Architecture
     ios >> nginx 
     react >> nginx
     nginx >>  api_gateway 
+    api_gateway >> Edge(color="brown") >> auth 
     
-    api_gateway >> auth 
-    auth >> supabase
+    auth >> Edge(color="darkgreen") << supabase 
+    auth >> Edge(label="producer") >> rabbitMQ
+    rabbitMQ >> Edge(label="consumer/producer") << electric
+    electric >> user_db
     
-    api_gateway >> electric >> user_db
-    api_gateway >> notifications 
+    rabbitMQ << Edge(label="consumer") << notifications
+    notifications >> device_token_db 
+    notifications >> Edge(label="send notifications to fcm") >> fcm
+    fcm >> Edge(label="push notifications", color="orange") >> ios
     
-    # electric >> Edge(color="brown") << notifications
-    notifications >> device_token_db
-    notifications >> fcm >> Edge(label="get device token") >> ios
-        
+    
         
