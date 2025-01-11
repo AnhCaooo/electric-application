@@ -10,7 +10,7 @@ Electric application contains its own backend services, message broker, API gate
 
 Web application to serve content built with NextJS, React
 
-### Sthor - swift thor (Public repo)
+### Sthor - swift thor (Private repo)
 
 iOS application to serve content built with Swift, SwiftUI
 
@@ -20,25 +20,25 @@ iOS application to serve content built with Swift, SwiftUI
 
 Manages authentication & authorization for electric application written in Python, [FastApi](https://fastapi.tiangolo.com/) and [Supabase](https://supabase.com/auth)
 
-### [electric-notifications](https://github.com/AnhCaooo/electric-push-notifications) (Public repo)
+### electric-notifications (Private repo)
 
-A service that responsible for dealing with notifications between mobile clients and servers
+A service that is responsible for dealing with notifications between mobile clients and servers
 
-### [stormbreaker](https://github.com/AnhCaooo/stormbreaker) (Public repo)
+### electric-service (Private repo)
 
-Fetches electric prices in real time built with Golang
+Fetches electric prices in real-time built with Golang
 
 ## Database services
 
-### [electric-mongo](https://github.com/AnhCaooo/electric-mongo) (Public repo)
+### electric-mongo (Public repo)
 
 MongoDB service 
 
-## [API gateway](https://github.com/AnhCaooo/doctor-strange) - Doctor-strange (Public repo)
+## API gateway (Public repo)
 
 Own custom API gateway service built with NodeJS
 
-## electric-nginx Private repo
+## electric-nginx (Private repo)
 Nginx as web server and reverse proxy 
 
 
