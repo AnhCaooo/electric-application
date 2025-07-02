@@ -20,21 +20,31 @@ iOS application to serve content built with Swift, SwiftUI
 
 Manages authentication & authorization for electric application written in Python, [FastApi](https://fastapi.tiangolo.com/) and [Supabase](https://supabase.com/auth)
 
-### [electric-notifications](https://github.com/AnhCaooo/electric-push-notifications) (Public repo)
+### [electric-notifications](https://github.com/AnhCaooo/electric-push-notifications)
 
 A service that responsible for dealing with notifications between mobile clients and servers
 
-### [stormbreaker](https://github.com/AnhCaooo/stormbreaker) (Public repo)
+### [stormbreaker](https://github.com/AnhCaooo/stormbreaker)
 
-Fetches electric prices in real time built with Golang
+Fetches energy prices (electric) in real time built with Golang. Will support more types of energy such as Oil, Gas, etc
+
+### [energy-tracking](https://github.com/AnhCaooo/energy-tracking)
+
+A service that responsible for real time tracking, activity log to improve user experience
+
+### [energy-user-experience](https://github.com/AnhCaooo/energy-user-experience)
+
+A service that responsible for providing FAQs content, Search for help, sync setting across devices
 
 ## Database services
 
-### [electric-mongo](https://github.com/AnhCaooo/electric-mongo) (Public repo)
+### [electric-mongo](https://github.com/AnhCaooo/electric-mongo)
+
+### [energy-postgre](https://github.com/AnhCaooo/ernergy-postgre)
 
 MongoDB service 
 
-## [API gateway](https://github.com/AnhCaooo/doctor-strange) - Doctor-strange (Public repo)
+## [API gateway](https://github.com/AnhCaooo/doctor-strange) - Doctor-strange
 
 Own custom API gateway service built with NodeJS
 

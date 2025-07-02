@@ -1,7 +1,7 @@
 from diagrams import Diagram, Cluster, Edge
 from diagrams.onprem.network import Nginx
 from diagrams.programming.language import NodeJS, Go, Swift
-from diagrams.onprem.database import MongoDB
+from diagrams.onprem.database import MongoDB, PostgreSQL
 from diagrams.firebase.grow import Messaging
 from diagrams.programming.framework import React, FastAPI
 from diagrams.custom import Custom
@@ -27,11 +27,15 @@ with Diagram("Electric Application Architecture", show=True):
             rabbitMQ = Custom("Message Broker", "./assets/rabbit.png")
             electric = Go('Electric service')
             notifications = Go('Notifications service')
-        
+            tracking = Go('Tracking service')
+            user_experience = Go('User experience service')
+            
         with Cluster('Database'):
             user_db = MongoDB("User")
             device_token_db = MongoDB("Device Tokens")
-
+            user_experience_db = PostgreSQL("User Experience")
+            tracking_db = PostgreSQL("Tracking")
+            
     # Architecture
     ios >> nginx 
     react >> nginx
@@ -48,5 +52,9 @@ with Diagram("Electric Application Architecture", show=True):
     notifications >> Edge(label="send notifications to fcm") >> fcm
     fcm >> Edge(label="push notifications", color="orange") >> ios
     
+    auth >> tracking >> tracking_db
+    auth >> user_experience >> user_experience_db
+    
+    auth >> electric
     
         
